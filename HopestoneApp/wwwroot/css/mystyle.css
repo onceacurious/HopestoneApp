@@ -1,0 +1,13 @@
+﻿:root {
+  --clr-aqua-100: #00fffb;
+  --clr-aqua-90: rgba(0, 255, 251, 0.9);
+  --clr-gray-100: gray;
+  --clr-white-100: white; }
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.3; }
+
+.bg-aqua {
+  background-color: var(--clr-aqua-100); }

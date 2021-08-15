@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "HOPESTONE CONSTRUCTION SERVICES | The Poineer of Construction Innovation";
+}
+<style>
+    .nav-link {
+        color: var(--clr-gray-100) !important;
+        font-weight: bolder !important;
+    }
+
+        .nav-link:hover {
+            color: var(--clr-white-100) !important;
+        }
+
+    #hamburger {
+        color: var(--clr-gray-100);
+    }
+
+    span.navbar-toggler {
+        border: 2px solid gray !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    .hero {
+        padding-top: 6.25rem;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--clr-aqua-90);
+        overflow: hidden;
+        position: relative;
+    }
+
+        .hero #heroContainer {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+        }
+
+        .hero img#img1 {
+            position: absolute;
+            top: -10%;
+            right: 10%;
+            height: 110vh;
+            width: 35%;
+            transform: rotate(5deg);
+            opacity: .8;
+            z-index: 1;
+        }
+
+        .hero img#img2 {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            height: 110vh;
+            width: 35%;
+            transform: rotate(5deg);
+            opacity: .8;
+            z-index: 1;
+        }
+
+    .service {
+        padding-top: 6.25rem;
+        width: 100%;
+        min-height: 100vh;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-aqua fixed-top border-bottom border-1" aria-label="Hopestone Navigation">
+    <div class="container-fluid">
+        <button id="navBtn" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hopestoneNav" aria-controls="hopestoneNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler px-2">
+                <i id="hamburger" class="fas fa-bars" role="img" aria-label="Toggler"></i>
+            </span>
+        </button>
+
+        <div class="navbar-collapse justify-content-md-center collapse" id="hopestoneNav" style="">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <img src="~/asset/images/brand.svg" alt="Hopestone Brand Icon" />
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <img id="img1" class="d-none d-sm-block" src="~/asset/images/hero-img-hscs.jpg" alt="Hero Background Right" />
+    <img id="img2" class="d-none d-sm-block" src="~/asset/images/hero-img-hscs_2.jpg" alt="Hero Background Left" />
+    <div id="heroContainer" class="container-fluid container-l">
+        <div class="col-lg-8 col-md-10 p-lg-3 p-2 mx-auto mt-lg-3 bg-light d-flex justify-content-center flex-column rounded" style="opacity: .9; height: max-content;">
+            <h4 class="display-7 fw-bord align-self-lg-center">HOPESTONE CONSTRUCTION SERVICES</h4>
+            <p class="lead fw-normal">
+                We are a Registered Construction Firm offering Planning & Design,
+                Building Construction, Renovation, Mechanical, Electronics, Electrical, Plumbing,
+                and other construction services. You name it, we build it.
+            </p>
+            <a class="btn btn-outline-primary align-self-center" style="width: 25%;" href="#">Let's Talk</a>
+        </div>
+    </div>
+</section>
+
+<section id="service" class="service">
+    <div class="container-fluid container-lg">
+        <h1 class="display-3">Service Section</h1>
+        <h1 class="display-1">Service Section</h1>
+    </div>
+</section>
