@@ -2,7 +2,9 @@
   --clr-aqua-100: #00fffb;
   --clr-aqua-90: rgba(0, 255, 251, 0.9);
   --clr-gray-100: gray;
-  --clr-white-100: white; }
+  --clr-white-100: white;
+  --clr-white-90: rgba(255, 255, 255, 0.9);
+  --clr-white-80: rgba(255, 255, 255, 0.8); }
 
 body {
   padding: 0 !important;
@@ -11,3 +13,30 @@ body {
 
 .bg-aqua {
   background-color: var(--clr-aqua-100); }
+
+.bg-white {
+  background-color: var(--clr-white-100); }
+
+.bg-white-90 {
+  background-color: var(--clr-white-90); }
+
+.bg-white-80 {
+  background-color: var(--clr-white-80); }
+
+.bg-gray {
+  background-color: var(--clr-gray-100); }
+
+.text-aqua {
+  color: var(--clr-aqua-100); }
+
+.text-white {
+  color: var(--clr-white-100); }
+
+.text-white-90 {
+  color: var(--clr-white-90); }
+
+.text-white-80 {
+  color: var(--clr-white-80); }
+
+.text-gray {
+  color: var(--clr-gray-100); }

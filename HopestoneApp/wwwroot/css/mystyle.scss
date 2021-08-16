@@ -3,6 +3,8 @@
     --clr-aqua-90: hsla(179, 100%, 50%, .9);
     --clr-gray-100: hsla(0, 0%, 50%, 1);
     --clr-white-100: hsla(255, 100%, 100%, 1);
+    --clr-white-90: hsla(255, 100%, 100%, .9);
+    --clr-white-80: hsla(255, 100%, 100%, .8);
 }
 
 body {
@@ -13,4 +15,40 @@ body {
 
 .bg-aqua {
     background-color: var(--clr-aqua-100);
+}
+
+.bg-white {
+    background-color: var(--clr-white-100);
+}
+
+.bg-white-90 {
+    background-color: var(--clr-white-90);
+}
+
+.bg-white-80 {
+    background-color: var(--clr-white-80);
+}
+
+.bg-gray {
+    background-color: var(--clr-gray-100);
+}
+
+.text-aqua {
+    color: var(--clr-aqua-100);
+}
+
+.text-white {
+    color: var(--clr-white-100);
+}
+
+.text-white-90 {
+    color: var(--clr-white-90);
+}
+
+.text-white-80 {
+    color: var(--clr-white-80);
+}
+
+.text-gray {
+    color: var(--clr-gray-100);
 }
