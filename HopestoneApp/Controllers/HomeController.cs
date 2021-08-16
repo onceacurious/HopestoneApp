@@ -1,7 +1,9 @@
-﻿using HopestoneApp.Models;
+﻿using HopestoneApp.Data;
+using HopestoneApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,14 +15,18 @@ namespace HopestoneApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AppDbContext _appDb;
+
+        public HomeController(ILogger<HomeController> logger, AppDbContext db)
         {
             _logger = logger;
+            _appDb = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Product> objList = _appDb.Products;
+            return View(objList);
         }
 
         public IActionResult Privacy()

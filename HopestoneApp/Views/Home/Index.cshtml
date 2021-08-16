@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<HopestoneApp.Models.Product>
+@{
     ViewData["Title"] = "HOPESTONE CONSTRUCTION SERVICES | The Poineer of Construction Innovation";
 }
 <style>
@@ -180,12 +181,12 @@
                 <li class="nav-item">
                     <div class="input-group">
                         <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-user-astronaut fa-lg"></i></span>
-                        <a href="#" class="nav-link d-md-none">Account</a>
+                        <a asp-area="" asp-controller="Admin" asp-action="Index" class="nav-link d-md-none">Account</a>
                     </div>
                 </li>
             </ul>
             <div class="account mx-2">
-                <a href="#" class="btn text-white d-none d-md-block">
+                <a asp-area="" asp-controller="Admin" asp-action="Index" class="btn text-white d-none d-md-block">
                     <i class="fas fa-user-shield fa-lg"></i>
                 </a>
             </div>
@@ -220,32 +221,43 @@
         <div class="service-content shadow-lg h-100 w-100 p-4 bg-light">
             <div class="row d-flex justify-content-center align-items-center">
 
-                <!--Service 1-->
-                <div class="col-lg-4 col-md-6 col-sm-6 col-12  p-1" style="min-height: 200px;">
-                    <div class="box bg-aqua w-100 h-100 rounded overflow-hidden bg-dark position-relative">
+                <!--Services-->
+                @if (Model.Count() > 0)
+                {
 
-                        <img class="opacity-50" src="~/asset/images/planning.jpg" alt="" style="height:100%; width: 100%" />
-                        <div class="box-content">
-                            <div class="row d-flex h-100">
-                                <div class="col-md-4">
-                                    <ul id="serviceList" class="h-100 d-flex flex-column justify-content-md-between justify-content-evenly align-items-center ps-0 py-md-5 py-2">
-                                        <li class="p-2 bg-white rounded-3" style="height: max-content; box-shadow: inset 0 0 6px var(--clr-gray-100)">
-                                            <img src="~/asset/icons/planning_icon.png" alt="" style="height: 3.125rem; width: 3.125rem;" />
-                                        </li>
-                                        <li class="p-2 rounded-3 d-flex justify-content-center">
-                                            <a type="button" id="ctaService" href="" class="text-aqua" data-bs-toggle="modal" data-bs-target="#serviceModal">
-                                                <i class="fas fa-share-square fa-3x"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-8 d-flex justify-content-around align-items-center">
-                                    <h4 class="service-title fw-bold">Planning &amp; Design</h4>
+                    @foreach (var product in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12  p-1" style="height: 250px;">
+                            <div class="box bg-aqua w-100 h-100 rounded overflow-hidden bg-dark position-relative">
+
+                                <img class="opacity-50" src="~/asset/images/@product.Image" alt="@product.Title" style="height:100%; width: 100%" loading="lazy" />
+                                <div class="box-content">
+                                    <div class="row d-flex h-100">
+                                        <div class="col-md-4">
+                                            <ul id="serviceList" class="h-100 d-flex flex-column justify-content-md-between justify-content-evenly align-items-center ps-0 py-md-5 py-2">
+                                                <li class="p-2 bg-white rounded-3" style="height: max-content; box-shadow: inset 0 0 6px var(--clr-gray-100)">
+                                                    <img src="~/asset/icons/@product.Icon" alt="" style="height: 3.125rem; width: 3.125rem;" loading="lazy" />
+                                                </li>
+                                                <li class="p-2 rounded-3 d-flex justify-content-center">
+                                                    <a type="button" id="ctaService" href="" class="text-aqua" data-bs-toggle="modal" data-bs-target="#serviceModal">
+                                                        <i class="fas fa-share-square fa-3x"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-8 d-flex justify-content-around align-items-center">
+                                            <h4 class="service-title fw-bold" style="text-transform:capitalize">@product.Title</h4>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
+                else
+                {
+                    <h4>Nothing to display</h4>
+                }
             </div>
         </div>
     </div>

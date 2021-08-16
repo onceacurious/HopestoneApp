@@ -1,0 +1,114 @@
+﻿@model HopestoneApp.Models.Product
+@{
+    ViewData["Title"] = "Add New | Product and Services - Hopestone Construction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--
+    TO DO:
+        INCLUDE BATCH UPLOAD OF DATA
+-->
+
+<div class="container-fluid container-lg py-5">
+
+    <h4 class="text-aqua">Add New Product or Service</h4>
+
+    <form id="creation" method="post" asp-action="Create" class="needs-validation border p-3 rounded-3" novalidate>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3">
+            <div class="form-floating mb-1">
+                <input type="text" class="form-control" id="Title" aria-describedby="titleHelp"
+                       placeholder="..." required data-bs-toggle="tooltip"
+                       data-bs-placement="top" title="Please provide meaningful title."
+                       asp-for="Title">
+                <label asp-for="Title" class="form-label">Title</label>
+            </div>
+            <div id="titleHelp" class="form-text mb-2">Refrain from using special characters.</div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Icon" placeholder="..." required
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Please specify exact file name with ext like .jpg .png .ico .svg"
+                           asp-for="Icon">
+                    <label asp-for="Icon">Icon Name</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Image" placeholder="..." required
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Please specify exact file name with ext like .jpg .png .ico .svg"
+                           asp-for="Image">
+                    <label asp-for="Image">Image Name</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="form-floating mb-1">
+                <textarea class="form-control" placeholder="..." id="Description"
+                          aria-describedby="descriptionHelp"
+                          required minlength="10"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="top"
+                          title="Brief description of the service or product."
+                          asp-for="Description"></textarea>
+                <label asp-for="Description">Description</label>
+            </div>
+            <div id="descriptionHelp" class="form-text mb-2">Please provide a brief details of the service or product.</div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Created" placeholder="..." required readonly
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Date of creation."
+                           value="@DateTime.Now"
+                           asp-for="Created">
+                    <label asp-for="Created">Date Created</label>
+                </div>
+                <span asp-validation-for="Created" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="Updated" placeholder="..." required readonly
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Date last updated."
+                           value="@DateTime.Now"
+                           asp-for="Updated">
+                    <label asp-for="Updated">Date Updated</label>
+                </div>
+                <span asp-validation-for="Updated" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-floating">
+                    <select class="form-select" id="IsActive" aria-label="Product Status"
+                            asp-for="IsActive">
+                        <option selected hidden>--Please select status--</option>
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                    <label asp-for="IsActive">Item Status</label>
+                </div>
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary w-md-25"><i class="far fa-save"></i> Save</button>
+            </div>
+            <div class="col text-center">
+                <a asp-action="Index" class="btn btn-danger w-md-25" data-bs-dismiss="creation"><i class="fas fa-sign-out-alt"></i> Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
