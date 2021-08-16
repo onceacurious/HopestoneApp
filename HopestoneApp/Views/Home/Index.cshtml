@@ -32,6 +32,12 @@
         box-shadow: none !important;
     }
 
+    #navInputText {
+        background-color: transparent !important;
+        color: var(--clr-white-100);
+        border: none;
+    }
+
     .hero {
         padding-top: 6.25rem;
         width: 100%;
@@ -59,18 +65,18 @@
             right: 10%;
             height: 110vh;
             width: 35%;
-            transform: rotate(5deg);
+            transform: rotate(-2deg);
             opacity: .8;
             z-index: 1;
         }
 
         .hero img#img2 {
             position: absolute;
-            top: 10%;
+            top: 5%;
             left: 5%;
             height: 110vh;
             width: 35%;
-            transform: rotate(5deg);
+            transform: rotate(15deg);
             opacity: .8;
             z-index: 1;
         }
@@ -88,10 +94,38 @@
             }
 
     .service {
-        padding-top: 6.25rem;
+        padding-top: 5rem;
         width: 100%;
         min-height: 100vh;
+        position: relative;
     }
+
+    .service-title {
+        color: var(--clr-aqua-100);
+    }
+
+    #serviceList {
+        align-self: center;
+        list-style: none;
+        margin: 0 !important;
+    }
+
+    .box-content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    #ctaService:hover {
+        color: var(--clr-white-100);
+    }
+
+        #ctaService:hover > i {
+            filter: drop-shadow(0 0 2px var(--clr-white-100));
+        }
 
     .blog {
         padding-top: 6.25rem;
@@ -115,23 +149,46 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <div class="input-group">
+                        <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-home fa-lg"></i></span>
+                        <a class="nav-link" href="#">Home</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
+                    <div class="input-group">
+                        <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-cubes fa-lg"></i></span>
+                        <a class="nav-link" href="#service">Portfolio</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                    <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <div class="input-group">
+                        <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-shopping-cart fa-lg"></i></span>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="serviceDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu bg-aqua" aria-labelledby="serviceDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
+                    <div class="input-group">
+                        <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-blog fa-lg"></i></span>
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="input-group">
+                        <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-user-astronaut fa-lg"></i></span>
+                        <a href="#" class="nav-link d-md-none">Account</a>
+                    </div>
                 </li>
             </ul>
+            <div class="account mx-2">
+                <a href="#" class="btn text-white d-none d-md-block">
+                    <i class="fas fa-user-shield fa-lg"></i>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -150,15 +207,47 @@
             <p class="lead fw-bold text-center">
                 You name it, We build it.
             </p>
-            <a id="ctaBtn" class="btn align-self-center fw-bold" style="width: 25%;" href="#">Let's Talk</a>
+            <a id="ctaBtn" class="btn align-self-center fw-bold w-md-25" href="#">Let's Talk</a>
         </div>
     </div>
 </section>
 
 <section id="service" class="service">
     <div class="container-fluid container-lg">
-        <h1 class="display-3">Service Section</h1>
-        <h1 class="display-1">Service Section</h1>
+        <div class="service-header">
+            <h1 class="display-5 fw-bold text-md-start text-center text-aqua">Services Offered</h1>
+        </div>
+        <div class="service-content shadow-lg h-100 w-100 p-4 bg-light">
+            <div class="row d-flex justify-content-center align-items-center">
+
+                <!--Service 1-->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12  p-1" style="min-height: 200px;">
+                    <div class="box bg-aqua w-100 h-100 rounded overflow-hidden bg-dark position-relative">
+
+                        <img class="opacity-50" src="~/asset/images/planning.jpg" alt="" style="height:100%; width: 100%" />
+                        <div class="box-content">
+                            <div class="row d-flex h-100">
+                                <div class="col-md-4">
+                                    <ul id="serviceList" class="h-100 d-flex flex-column justify-content-md-between justify-content-evenly align-items-center ps-0 py-md-5 py-2">
+                                        <li class="p-2 bg-white rounded-3" style="height: max-content; box-shadow: inset 0 0 6px var(--clr-gray-100)">
+                                            <img src="~/asset/icons/planning_icon.png" alt="" style="height: 3.125rem; width: 3.125rem;" />
+                                        </li>
+                                        <li class="p-2 rounded-3 d-flex justify-content-center">
+                                            <a type="button" id="ctaService" href="" class="text-aqua" data-bs-toggle="modal" data-bs-target="#serviceModal">
+                                                <i class="fas fa-share-square fa-3x"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-8 d-flex justify-content-around align-items-center">
+                                    <h4 class="service-title fw-bold">Planning &amp; Design</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <section id="blog" class="blog">
@@ -167,3 +256,65 @@
         <h1 class="display-1">Blog Section</h1>
     </div>
 </section>
+
+<!--Service Inquiry Modal-->
+
+<div class="modal fade" id="serviceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold text-aqua" id="serviceModalLabel">Service Inquiry Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!--Form-->
+                <form class="needs-validation" novalidate>
+                    <div class="mb-2">
+                        <h5 class="display-6 text-center text-aqua">Service Selected</h5>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="firstName" placeholder="..." required minlength="3" data-bs-toggle="tooltip" data-bs-placement="top" title="First name must not less than 3 letters.">
+                                <label for="firstName">First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="lastName" placeholder="..." required minlength="3" data-bs-toggle="tooltip" data-bs-placement="top" title="Last name must not less than 3 letters.">
+                                <label for="lastName">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating mb-1">
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="..." required data-bs-toggle="tooltip" data-bs-placement="top" title="Email must include &#64; and ends with &acute;.com&acute;">
+                            <label for="email" class="form-label">Email address</label>
+                        </div>
+                        <div id="emailHelp" class="form-text mb-2">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="contact" aria-describedby="contactHelp" placeholder="..." required minlength="8" data-bs-toggle="tooltip" data-bs-placement="top" title="Number must not less than 8 characters.">
+                            <label for="contact" class="form-label">Contact Number</label>
+                        </div>
+                        <div id="contactHelp" class="form-text mb-2">Please include area code e.g 034 or 02 for Landlines.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-floating mb-1">
+                            <textarea class="form-control" placeholder="..." id="message" aria-describedby="messageHelp" required minlength="10" data-bs-toggle="tooltip" data-bs-placement="top" title="Message must not less than 10 letters including spaces."></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <div id="messageHelp" class="form-text mb-2">Please provide a brief details of your inquiry.</div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="lead">Hopestone Construction Services &copy; 2021</p>
+            </div>
+        </div>
+    </div>
+</div>

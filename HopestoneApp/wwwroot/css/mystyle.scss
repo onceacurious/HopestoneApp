@@ -17,6 +17,10 @@ body {
     background-color: var(--clr-aqua-100);
 }
 
+.bg-aqua-90 {
+    background-color: var(--clr-aqua-90);
+}
+
 .bg-white {
     background-color: var(--clr-white-100);
 }
@@ -51,4 +55,11 @@ body {
 
 .text-gray {
     color: var(--clr-gray-100);
+}
+
+//Media Query
+@media (max-width: 576px) {
+    .service-title {
+        transform: scale(1.20);
+    }
 }
