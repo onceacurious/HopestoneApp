@@ -11,10 +11,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<_ContentIncludedByDefault Remove="wwwroot\css\mystyle.css" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="5.0.9" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.9" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.9" />

@@ -24,3 +24,36 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+
+//Main
+
+function showOverlay(id) {
+    var serviceOverlay = document.getElementById("serviceBoxOverlay_" + id);
+
+    if (serviceOverlay.classList.contains("show-serviceOverlay")) {
+        serviceOverlay.classList.remove("show-serviceOverlay");
+    }
+    else if (serviceOverlay.classList.contains("hide-serviceOverlay")) {
+        serviceOverlay.classList.add("show-serviceOverlay");
+        serviceOverlay.classList.remove("hide-serviceOverlay");
+    }
+    else {
+        serviceOverlay.classList.add("show-serviceOverlay");
+    }
+}
+
+function hideOverlay(id) {
+    var serviceOverlay = document.getElementById("serviceBoxOverlay_" + id);
+    if (serviceOverlay.classList.contains("show-serviceOverlay")) {
+        serviceOverlay.classList.remove("show-serviceOverlay");
+        serviceOverlay.classList.add("hide-serviceOverlay")
+    }
+    else {
+        serviceOverlay.classList.add("hide-serviceOverlay");
+    }
+}
+
+function getServiceTitle(id) {
+    var title = document.getElementById("service_" + id).innerHTML;
+    document.getElementById("serviceForm_Modal").innerHTML = title;
+}

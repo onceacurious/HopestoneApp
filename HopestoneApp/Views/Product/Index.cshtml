@@ -3,65 +3,77 @@
     ViewData["Title"] = "Products and Services List | Hopestone Construction Services";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h4>Product Page</h4>
-<a asp-area="" asp-controller="Home" asp-action="Index" class="m-5 py-5">Home</a>
-<a asp-area="" asp-controller="Admin" asp-action="Index" class="m-5 py-5">Admin</a>
+<div class="container-fluid bg-white-80" style="height: 100vh">
 
-<div class="container-fluid container-lg p-3">
-    <div class="row pt-4 d-flex justify-content-around align-content-center">
-        <div class="col-6">
-            <h2 class="text-primary">List of Products and Services</h2>
+    <h4>Product Page</h4>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="m-5 py-5">Home</a>
+    <a asp-area="" asp-controller="Admin" asp-action="Index" class="m-5 py-5">Admin</a>
+
+    <div class="container-fluid container-lg p-3 my-2 rounded" style="height: 520px; overflow-y:auto; border: 1px solid var(--clr-gray-60); position: relative">
+        <div class="d-sm-none alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>For Mobile Users!</strong> Please use landscape mode to view more details.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="col-6 text-right align-self-center">
-            <a asp-action="Create" class="btn btn-primary text-light">
-                <i class="fas fa-plus"></i>
-                Add New
-            </a>
+        <div class="row pt-4 d-flex justify-content-around align-content-center" style="position: sticky;">
+            <div class="col-6">
+                <h2 class="text-primary display-6 fw-bold">
+                    List of Products and Services
+                </h2>
+            </div>
+            <div class="col-6 text-md-center text-end align-self-center">
+                <a asp-action="Create" class="btn btn-primary text-light">
+                    <i class="fas fa-plus"></i>
+                    Add New
+                </a>
+            </div>
+        </div>
+        <br />
+        <div class="table-container w-100">
+
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-hover table-bordered border-white table-condensed table-responsive">
+                    <thead>
+                        <tr class="bg-aqua text-white">
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Icon URL</th>
+                            <th>Image URL</th>
+                            <th>Date Creation</th>
+                            <th>Date Updated</th>
+                            <th>Status (Active)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var product in Model)
+                        {
+                            <tr>
+                                <td class="fw-bold" style="width:12.5%; background-color: var(--clr-gray-60);">@product.Title</td>
+                                <td style="width:12.5%">@product.Description</td>
+                                <td style="width:12.5%">@product.Icon</td>
+                                <td style="width:12.5%">@product.Image</td>
+                                <td style="width:12.5%">@product.Created</td>
+                                <td style="width:12.5%">@product.Updated</td>
+                                <td style="width:12.5%">@product.IsActive</td>
+                                <td class="w-100 btn-group" role="group">
+                                    <a class="btn btn-outline-info mx-1" asp-action="Update" asp-route-Id="@product.Id"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Update Item"><i class="far fa-edit"></i></a>
+                                    <a class="btn btn-outline-danger mx-1" asp-action="Delete" asp-route-Id="@product.Id"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No Expense to display.</p>
+            }
         </div>
     </div>
-    <br />
-    @if (Model.Count() > 0)
-    {
-        <table class="table table-hover table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Icon URL</th>
-                    <th>Image URL</th>
-                    <th>Date Creation</th>
-                    <th>Date Updated</th>
-                    <th>Status (Active)</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var product in Model)
-                {
-                    <tr>
-                        <td style="width:12.5%">@product.Title</td>
-                        <td style="width:12.5%">@product.Description</td>
-                        <td style="width:12.5%">@product.Icon</td>
-                        <td style="width:12.5%">@product.Image</td>
-                        <td style="width:12.5%">@product.Created</td>
-                        <td style="width:12.5%">@product.Updated</td>
-                        <td style="width:12.5%">@product.IsActive</td>
-                        <td class="w-100 btn-group" role="group">
-                            <a class="btn btn-outline-info mx-1" asp-action="Update" asp-route-Id="@product.Id"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Update Item"><i class="far fa-edit"></i></a>
-                            <a class="btn btn-outline-danger mx-1" asp-action="Delete" asp-route-Id="@product.Id"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Delete"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>No Expense to display.</p>
-    }
 </div>

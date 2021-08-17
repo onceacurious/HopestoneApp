@@ -1,5 +1,6 @@
 ﻿using HopestoneApp.Data;
 using HopestoneApp.Models;
+using HopestoneApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -69,16 +70,28 @@ namespace HopestoneApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(Product obj)
         {
-            /*if (ModelState.IsValid)
+            _appDb.Products.Update(obj);
+            _appDb.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //Get-Delete
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
             {
+                return NotFound();
+            }
+            var obj = _appDb.Products.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
             }
             else
             {
                 return View(obj);
-            }*/
-            _appDb.Products.Update(obj);
-            _appDb.SaveChanges();
-            return RedirectToAction("Index");
+            }
         }
     }
 }

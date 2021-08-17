@@ -26,13 +26,9 @@ namespace HopestoneApp.Models
         public string Description { get; set; }
 
         [Required]
-        //[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        //[DateVal(ErrorMessage = "Back date or advance entry not allowed")]
         public DateTime Created { get; set; }
 
         [Required]
-        //[DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        //[DateVal(ErrorMessage = "Back date or advance entry not allowed")]
         public DateTime Updated { get; set; }
 
         [Display(Name = "Item Status")]

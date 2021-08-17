@@ -1,71 +1,271 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+﻿/*My Custom css*/
+:root {
+    --clr-aqua-100: #00fffb;
+    --clr-aqua-90: rgba(0, 255, 251, 0.9);
+    --clr-gray-100: gray;
+    --clr-gray-60: rgba(128, 128, 128, 0.6);
+    --clr-white-100: white;
+    --clr-white-90: rgba(255, 255, 255, 0.9);
+    --clr-white-80: rgba(255, 255, 255, 0.8);
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.3;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.bg-aqua {
+    background-color: var(--clr-aqua-100);
+}
+
+.bg-aqua-90 {
+    background-color: var(--clr-aqua-90);
+}
+
+.bg-white {
+    background-color: var(--clr-white-100);
+}
+
+.bg-white-90 {
+    background-color: var(--clr-white-90);
+}
+
+.bg-white-80 {
+    background-color: var(--clr-white-80);
+}
+
+.bg-gray {
+    background-color: var(--clr-gray-100);
+}
+
+.bg-gray-60 {
+    background-color: var(--clr-gray-60);
+}
+
+.text-aqua {
+    color: var(--clr-aqua-100);
+}
+
+.text-white {
+    color: var(--clr-white-100);
+}
+
+.text-white-90 {
+    color: var(--clr-white-90);
+}
+
+.text-white-80 {
+    color: var(--clr-white-80);
+}
+
+.text-gray {
+    color: var(--clr-gray-100);
+}
+
+nav {
+    opacity: .75 !important;
+}
+
+.nav-scrolled {
+    opacity: 1 !important;
+    border-bottom: 2px solid var(--clr-gray-100) !important;
+    box-shadow: 0 0 4px var(--clr-gray-100) !important;
+    background-image: linear-gradient(to bottom right, gray, aqua, white) !important;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--clr-gray-100) !important;
+    font-weight: bolder !important;
+}
+
+    .nav-link:hover {
+        color: var(--clr-white-100) !important;
+    }
+
+#hamburger {
+    color: var(--clr-white-100);
+}
+
+span.navbar-toggler {
+    border: 2px solid var(--clr-white-100) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+#navInputText {
+    background-color: transparent !important;
+    color: var(--clr-white-100);
+    border: none;
+}
+
+.hero {
+    padding-top: 6.25rem;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--clr-aqua-90);
+    overflow: hidden;
+    position: relative;
+}
+
+    .hero #heroContainer {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    .hero img#img1 {
+        position: absolute;
+        top: -10%;
+        right: 10%;
+        height: 110vh;
+        width: 35%;
+        transform: rotate(-2deg);
+        opacity: .8;
+        z-index: 1;
+    }
+
+    .hero img#img2 {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        height: 110vh;
+        width: 35%;
+        transform: rotate(15deg);
+        opacity: .8;
+        z-index: 1;
+    }
+
+    .hero #ctaBtn {
+        border: 2px solid var(--clr-aqua-100);
+        color: var(--clr-aqua-100);
+        box-shadow: 0 0 4px var(--clr-aqua-100);
+    }
+
+        .hero #ctaBtn:hover {
+            background-color: var(--clr-aqua-100);
+            color: var(--clr-white-100);
+            box-shadow: none;
+        }
+
+.service {
+    padding-top: 5rem;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+#serviceBoxContainer {
+    position: relative;
+}
+
+.serviceBoxOverlay {
+    position: absolute;
+    background-color: var(--clr-aqua-100);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    transition: animation 350ms ease-in-out;
+    z-index: 20;
+}
+
+.show-serviceOverlay {
+    animation: startToEnd 350ms ease forwards;
+}
+
+.hide-serviceOverlay {
+    animation: startToEnd_Exit 350ms ease forwards;
+}
+
+.service-title {
+    color: var(--clr-aqua-100);
+}
+
+#serviceList {
+    align-self: center;
+    list-style: none;
+    margin: 0 !important;
+}
+
+.box-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.ctaService {
+    color: var(--clr-aqua-100);
+}
+
+    .ctaService:hover {
+        color: var(--clr-white-100);
+    }
+
+        .ctaService:hover > i {
+            filter: drop-shadow(0 0 2px var(--clr-white-100));
+        }
+
+@media screen and (max-width: 576px) {
+    .service-title {
+        transform: scale(1.2);
+    }
+
+    #heroContainer {
+        align-items: start !important;
+        padding-top: 15%;
+    }
+}
+
+@keyframes startToEnd {
+    from {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    50% {
+        visibility: visible;
+        opacity: .90;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes startToEnd_Exit {
+    from {
+        margin-left: 0%;
+        width: 100%;
+        visibility: visible;
+    }
+
+    50% {
+        opacity: .9;
+        visibility: visible;
+    }
+
+    to {
+        margin-left: 100%;
+        width: 300%;
+        visibility: hidden;
+    }
 }
