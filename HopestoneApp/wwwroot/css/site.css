@@ -181,14 +181,15 @@ span.navbar-toggler {
         box-shadow: 0 0 6px var(--clr-aqua-100);
     }
 
-.hero-footer {
+#heroFooter {
     position: absolute;
-    bottom: 0;
+    bottom: 3.125rem;
     width: 100%;
     z-index: 30;
 }
 
 .hero-footer-scrolled {
+    bottom: 0 !important;
 }
 
 .service {

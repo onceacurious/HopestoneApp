@@ -130,21 +130,21 @@
         </div>
         <a id="ctaBtn" class="btn align-self-center fw-bold w-md-25" href="#">Let's Talk</a>
     </div>
-    <div class="hero-footer w-100 d-flex justify-content-center">
-        <div class="row w-100 d-flex flex-column flex-md-row justify-content-center align-items-center">
+    <div id="heroFooter" class="w-100 d-flex justify-content-center">
+        <div class="row w-100 d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
 
             <div class="accordion col-md-4" id="phoneAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Contact Number
+                            <h5 class="m-0">Contact Number</h5>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#phoneAccordion">
                         <div class="accordion-body">
-                            <p class="mb-0">09167422772</p>
-                            <p class="mb-0">09504061511</p>
-                            <p class="mb-0">034 700 6839</p>
+                            <p class="mb-0"><i class="fas fa-mobile-alt"></i> 09167422772</p>
+                            <p class="mb-0"><i class="fas fa-mobile-alt"></i> 09504061511</p>
+                            <p class="mb-0"><i class="fas fa-phone-alt"></i> +34 700 6839</p>
                         </div>
                     </div>
                 </div>
@@ -154,12 +154,12 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            Email Address
+                            <h5 class="m-0">Email Address</h5>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#emailaAccordion">
                         <div class="accordion-body">
-                            <p><a href="mailTo:hopestoneconstruction@gmail.com" style="word-wrap:break-word;text-decoration: none; color: black">hopestoneconstruction@gmail.com</a></p>
+                            <p><a href="mailTo:hopestoneconstruction@gmail.com" target="_blank" style="word-wrap:break-word;text-decoration: none; color: black"><i class="far fa-envelope"></i> hopestoneconstruction@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -168,12 +168,12 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                            Location
+                            <h5 class="m-0">Location</h5>
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#locationAccordion">
                         <div class="accordion-body">
-                            <p><a href="https://goo.gl/maps/1ypSJeZtk2NZoVfL7" style="text-decoration: none; color: black">B49 L4 RPHS Brgy Alijis Bacolod City PH 6100</a></p>
+                            <p><a href="https://goo.gl/maps/1ypSJeZtk2NZoVfL7" target="_blank" style="text-decoration: none; color: black"><i class="fas fa-map-marker-alt"></i> B49 L4 RPHS Brgy Alijis Bacolod City PH 6100</a></p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
     </div>
 </section>
 
-<section id="booking" class="booking w-100 bg-gray-60" style="height: 100vh; padding-top: 4.375rem">
+<section id="booking" class="booking w-100 bg-light" style="height: 100vh; padding-top: 4.375rem">
     <div class="container-fluid container-lg">
         <h4 class="">About Us</h4>
     </div>
@@ -375,4 +375,25 @@
     }, navOptions);
 
     footerObserver.observe(hero);
+
+    var heroFooter = document.getElementById("heroFooter");
+    var heroFooterOptions = {
+        rootMargin: "-450px 0px 0px 0px",
+    };
+
+    const heroFooterObserver = new IntersectionObserver(function (entries, heroFooterObserver) {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                heroFooter.classList.add("hero-footer-scrolled");
+            }
+            else {
+                if (heroFooter.classList.contains("hero-footer-scrolled") ){
+                    heroFooter.classList.remove("hero-footer-scrolled");
+                }
+            }
+        }
+        );
+    }, heroFooterOptions);
+
+    heroFooterObserver.observe(hero);
 </script>
