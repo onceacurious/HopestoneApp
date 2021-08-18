@@ -1,5 +1,3 @@
-using System;
-
 namespace HopestoneApp.Models
 {
     public class ErrorViewModel

@@ -56,17 +56,27 @@
                 <li class="nav-item">
                     <div class="input-group">
                         <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-cubes fa-lg"></i></span>
-                        <a class="nav-link" href="#">Portfolio</a>
+                        <a class="nav-link" href="#booking">Portfolio</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <div class="input-group">
                         <span id="navInputText" class="input-group-text d-md-none"><i class="fas fa-shopping-cart fa-lg"></i></span>
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="serviceDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" type="button" href="#" id="serviceDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu bg-aqua" aria-labelledby="serviceDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            @if (Model.Count() > 0)
+                            {
+                                @foreach (var product in Model)
+                                {
+                                    <li><a class="dropdown-item" href="#">@product.Title</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li>No Service...</li>
+                            }
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#service">Service Section</a></li>
                         </ul>
                     </div>
                 </li>
@@ -93,33 +103,100 @@
 </nav>
 
 <section id="hero" class="hero">
-    <img id="img1" class="d-none d-sm-block" src="~/asset/images/hero-img-hscs.jpg" alt="Hero Background Right" />
-    <img id="img2" class="d-none d-sm-block" src="~/asset/images/hero-img-hscs_2.jpg" alt="Hero Background Left" />
-    <div id="heroContainer" class="container-fluid container-l align-items-center">
-        <div class="col-lg-8 col-md-10 p-lg-3 p-2 mx-auto d-flex justify-content-center flex-column rounded bg-white-80 text-gray shadow-lg" style="opacity: .9; height: max-content;">
-            <h4 class="fw-md-bold align-self-lg-center py-2">HOPESTONE CONSTRUCTION SERVICES</h4>
-            <p class="lead fw-normal">
-                We are a Registered Construction Firm offering Planning & Design,
-                Building Construction, Renovation, Mechanical, Electronics, Electrical, Plumbing,
-                and other construction services.
-            </p>
-            <p class="lead fw-bold text-center">
-                You name it, We build it.
-            </p>
-            <a id="ctaBtn" class="btn align-self-center fw-bold w-md-25" href="#">Let's Talk</a>
+    <img id="light" class="d-none d-sm-block" src="~/asset/images/light.png" alt="Hero Background Right" />
+    <img id="sofa" class="d-none d-sm-block" src="~/asset/images/sofa.png" alt="Hero Background Left" />
+
+    <div id="heroContainer" class="container-fluid container-l d-flex flex-column">
+        <!--Hero Card-->
+        <h2 id="constructionTitle" class="display-5 fw-bold pt-0">Construction</h2>
+        <h1 id="serviceTitle" class="display-3 fw-bold">SERVICES</h1>
+
+        <div class="container d-none d-lg-flex shadow-lg rounded pt-2" style="position: absolute; top: 50%; left:7%;">
+            @if (Model.Count() > 0)
+            {
+
+                @foreach (var product in Model)
+                {
+                    <div class="w-100 d-flex justify-content-evenly align-items-center flex-column" style="height: max-content">
+                        <img src="~/asset/icons/@product.Icon" alt="" style="height: 3.125rem; width: 3.125rem;" />
+                        <h5 class="text-white">@product.Title</h5>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Nothing to display</p>
+            }
         </div>
+        <a id="ctaBtn" class="btn align-self-center fw-bold w-md-25" href="#">Let's Talk</a>
+    </div>
+    <div class="hero-footer w-100 d-flex justify-content-center">
+        <div class="row w-100 d-flex flex-column flex-md-row justify-content-center align-items-center">
+
+            <div class="accordion col-md-4" id="phoneAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Contact Number
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#phoneAccordion">
+                        <div class="accordion-body">
+                            <p class="mb-0">09167422772</p>
+                            <p class="mb-0">09504061511</p>
+                            <p class="mb-0">034 700 6839</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion col-md-4" id="emailaAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Email Address
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#emailaAccordion">
+                        <div class="accordion-body">
+                            <p><a href="mailTo:hopestoneconstruction@gmail.com" style="word-wrap:break-word;text-decoration: none; color: black">hopestoneconstruction@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion col-md-4" id="locationAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                            Location
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#locationAccordion">
+                        <div class="accordion-body">
+                            <p><a href="https://goo.gl/maps/1ypSJeZtk2NZoVfL7" style="text-decoration: none; color: black">B49 L4 RPHS Brgy Alijis Bacolod City PH 6100</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="booking" class="booking w-100 bg-gray-60" style="height: 100vh; padding-top: 4.375rem">
+    <div class="container-fluid container-lg">
+        <h4 class="">About Us</h4>
     </div>
 </section>
 
 <section id="service" class="service">
     <div class="container-fluid container-lg">
         <div class="service-header">
-            <h1 class="display-5 fw-bold text-md-start text-center text-aqua" style="filter: drop-shadow(0 0 5px var(--clr-gray-60))">
+            <h1 class="display-5 fw-bold text-md-start text-center text-aqua" style="text-shadow: 4px 4px 2px var(--clr-gray-100)">
                 Services Offered
             </h1>
         </div>
         <div class="service-content shadow-lg h-100 w-100 p-4 bg-light">
-            <div class="row d-flex justify-content-center align-items-center">
+            <div class="row d-flex justify-content-center justify-content-md-evenly align-items-center">
 
                 <!--Services-->
                 @if (Model.Count() > 0)
@@ -135,15 +212,9 @@
                                 <div class="serviceBoxOverlay" id="serviceBoxOverlay_@product.Id" style="display:flex;flex-direction:column; align-items:center;justify-content:center">
 
                                     <div class="overlay-header w-100 d-flex p-2 h-25">
-                                        <div class="row w-100 d-flex align-items-center justify-content-center">
-                                            <div class="col-10">
-
-                                                <h4 class="text-gray fw-bold" style="text-transform:capitalize">@product.Title</h4>
-                                            </div>
-                                            <div class="col-2 text-right">
-
-                                                <button id="@product.Id" type="button" class="btn-close" area-label="Close" onclick="hideOverlay(this.id)"></button>
-                                            </div>
+                                        <button id="@product.Id" type="button" class="btn-close" area-label="Close" onclick="hideOverlay(this.id)"></button>
+                                        <div class="row w-100">
+                                            <h4 class="text-gray fw-bold" style="text-transform:capitalize">@product.Title</h4>
                                         </div>
                                     </div>
 
@@ -170,7 +241,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-8 d-flex justify-content-around align-items-center">
-                                            <h4 id="service_@product.Id" class="service-title fw-bold" style="text-transform:capitalize; word-break: break-word">@product.Title</h4>
+                                            <h4 id="service_@product.Id" class="service-title fw-bold" style="text-transform:capitalize; word-break: break-word; text-shadow:4px 4px 2px var(--clr-black-100)">@product.Title</h4>
                                         </div>
                                     </div>
                                 </div>

@@ -2,11 +2,13 @@
 :root {
     --clr-aqua-100: #00fffb;
     --clr-aqua-90: rgba(0, 255, 251, 0.9);
+    --clr-aqua-60: rgba(0, 255, 251, 0.6);
     --clr-gray-100: gray;
     --clr-gray-60: rgba(128, 128, 128, 0.6);
     --clr-white-100: white;
     --clr-white-90: rgba(255, 255, 255, 0.9);
     --clr-white-80: rgba(255, 255, 255, 0.8);
+    --clr-black-100: rgba(0, 0, 0, 1);
 }
 
 body {
@@ -110,8 +112,7 @@ span.navbar-toggler {
     padding-top: 6.25rem;
     width: 100%;
     height: 100vh;
-    background-color: var(--clr-aqua-90);
-    overflow: hidden;
+    background-color: var(--clr-aqua-60);
     position: relative;
 }
 
@@ -126,39 +127,69 @@ span.navbar-toggler {
         z-index: 5;
     }
 
-    .hero img#img1 {
+    .hero img#light {
         position: absolute;
-        top: -10%;
-        right: 10%;
-        height: 110vh;
-        width: 35%;
-        transform: rotate(-2deg);
+        top: 0%;
+        right: 3.125rem;
+        bottom: 30%;
+        height: 300px;
+        width: 250px;
         opacity: .8;
         z-index: 1;
     }
 
-    .hero img#img2 {
+    .hero img#sofa {
         position: absolute;
-        top: 5%;
-        left: 5%;
-        height: 110vh;
-        width: 35%;
-        transform: rotate(15deg);
+        top: 0%;
+        left: 0%;
+        height: 100vh;
+        width: 450px;
         opacity: .8;
         z-index: 1;
     }
 
-    .hero #ctaBtn {
+#constructionTitle {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: var(--clr-white-100);
+    border-top: 5px solid var(--clr-gray-100);
+}
+
+#serviceTitle {
+    position: absolute;
+    top: 32%;
+    left: 13%;
+    color: var(--clr-gray-100);
+    letter-spacing: .25rem;
+    border-bottom: 5px solid var(--clr-white-100);
+}
+
+.hero #ctaBtn {
+    position: absolute;
+    bottom: 20%;
+    border: 2px solid var(--clr-white-100);
+    background-image: linear-gradient(120deg, gray, black);
+    color: var(--clr-aqua-100);
+    box-shadow: 0 0 6px var(--clr-white-100);
+}
+
+    .hero #ctaBtn:hover {
+        background-image: linear-gradient(45deg, aqua, white);
+        color: var(--clr-gray-100);
         border: 2px solid var(--clr-aqua-100);
-        color: var(--clr-aqua-100);
-        box-shadow: 0 0 4px var(--clr-aqua-100);
+        box-shadow: 0 0 6px var(--clr-aqua-100);
     }
 
-        .hero #ctaBtn:hover {
-            background-color: var(--clr-aqua-100);
-            color: var(--clr-white-100);
-            box-shadow: none;
-        }
+.hero-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 30;
+}
+
+.hero-footer-scrolled {
+}
 
 .service {
     padding-top: 5rem;
@@ -182,6 +213,17 @@ span.navbar-toggler {
     transition: animation 350ms ease-in-out;
     z-index: 20;
 }
+
+.overlay-header {
+    position: relative;
+}
+
+    .overlay-header button {
+        position: absolute;
+        z-index: 1;
+        top: 0.3125rem;
+        right: 0.3125rem;
+    }
 
 .show-serviceOverlay {
     animation: startToEnd 350ms ease forwards;
@@ -223,13 +265,28 @@ span.navbar-toggler {
         }
 
 @media screen and (max-width: 576px) {
+    /*Small View*/
     .service-title {
         transform: scale(1.2);
     }
 
     #heroContainer {
-        align-items: start !important;
-        padding-top: 15%;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 50%;
+    }
+
+    .hero #constructionTitle, .hero #serviceTitle,
+    .hero #ctaBtn {
+        top: 0;
+        left: 0;
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero #ctaBtn {
+        bottom: 40%;
     }
 }
 
