@@ -327,3 +327,22 @@ span.navbar-toggler {
         visibility: hidden;
     }
 }
+
+@keyframes topToBottom {
+    from {
+        margin-top: 0;
+        height: 100%;
+        visibility: visible;
+    }
+
+    50% {
+        opacity: .9;
+        visibility: visible;
+    }
+
+    to {
+        margin-top: 100%;
+        height: 300%;
+        visibility: hidden;
+    }
+}

@@ -57,3 +57,12 @@ function getServiceTitle(id) {
     var title = document.getElementById("service_" + id).innerHTML;
     document.getElementById("serviceForm_Modal").innerHTML = title;
 }
+
+function hideServiceTable() {
+    var prodContainer = document.getElementById("productFormContainer");
+    var tableContainer = document.getElementById("tableContainer");
+
+    prodContainer.style.overflowY = "hidden";
+    tableContainer.classList.add("hide-table");
+
+}
